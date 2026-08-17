@@ -53,7 +53,31 @@
     <label for="pdfFileName">Output File Name:</label>
     <input type="text" id="pdfFileName" class="file-input-name" placeholder="my_document" value="converted_file">
   </div>
+<!-- Controls Section -->
+<div class="controls-grid">
+  <div class="input-group">
+    <label for="pageOrientation">Orientation</label>
+    <select id="pageOrientation">
+      <option value="p">Portrait (Vertical)</option>
+      <option value="l">Landscape (Horizontal)</option>
+    </select>
+  </div>
 
+  <div class="input-group">
+    <label for="pageMargin">Page Margin</label>
+    <select id="pageMargin">
+      <option value="0">No Margin</option>
+      <option value="10">Small Margin</option>
+      <option value="20">Big Margin</option>
+    </select>
+  </div>
+</div>
+
+<div class="input-group" style="margin-top: 15px;">
+  <label for="pdfPassword">Set PDF Password (Optional)</label>
+  <input type="password" id="pdfPassword" placeholder="Leave empty for no password">
+</div>
+  
   <div class="actions">
     <button class="btn btn-clear" id="clearBtn" disabled>Clear</button>
     <button class="btn" id="convertBtn" disabled>Convert to PDF</button>
