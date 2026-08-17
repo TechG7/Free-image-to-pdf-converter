@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://techg7.github.io/Free-image-to-pdf-converter/sitemap.xml
+
