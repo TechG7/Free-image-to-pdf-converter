@@ -103,8 +103,18 @@ async function generatePDF() {
 
   try {
     const { jsPDF } = window.jspdf;
+    
+    // Inputs se values get karein
+    const userOrientation = document.getElementById('pageOrientation') ? document.getElementById('pageOrientation').value : 'auto';
+    const margin = document.getElementById('pageMargin') ? parseInt(document.getElementById('pageMargin').value) : 10;
+    const password = document.getElementById('pdfPassword') ? document.getElementById('pdfPassword').value.trim() : '';
+    
+    let fileNameInput = document.getElementById('fileName') || document.getElementById('pdfFileName');
+    let fileName = fileNameInput ? fileNameInput.value.trim() : 'converted';
+    if (!fileName) fileName = 'converted';
+    if (!fileName.endsWith('.pdf')) fileName += '.pdf';
+
     let doc = null;
-    const margin = 10;
 
     for (let i = 0; i < imageList.length; i++) {
       const img = await new Promise((resolve, reject) => {
@@ -114,11 +124,30 @@ async function generatePDF() {
         imageElement.src = imageList[i].url;
       });
 
-      const isLandscape = img.naturalWidth > img.naturalHeight;
-      const orientation = isLandscape ? 'l' : 'p';
+      // User Orientation select karein ya Auto-detect karein
+      let orientation = userOrientation;
+      if (userOrientation === 'auto') {
+        const isLandscape = img.naturalWidth > img.naturalHeight;
+        orientation = isLandscape ? 'l' : 'p';
+      }
+
+      // PDF options setup (Password include karke)
+      const pdfOptions = {
+        orientation: orientation,
+        unit: 'mm',
+        format: 'a4'
+      };
+
+      if (password !== "") {
+        pdfOptions.encryption = {
+          userPassword: password,
+          ownerPassword: password,
+          userPermissions: ['print', 'modify', 'copy']
+        };
+      }
 
       if (i === 0) {
-        doc = new jsPDF(orientation, 'mm', 'a4');
+        doc = new jsPDF(pdfOptions);
       } else {
         doc.addPage('a4', orientation);
       }
@@ -148,14 +177,13 @@ async function generatePDF() {
       doc.addImage(canvas.toDataURL('image/jpeg', 0.85), 'JPEG', xOffset, yOffset, finalW, finalH);
     }
 
-    let fileName = document.getElementById('pdfFileName').value.trim() || "converted";
-    if (!fileName.endsWith('.pdf')) fileName += ".pdf";
-
-    doc.save(fileName);
+    if (doc) {
+      doc.save(fileName);
+    }
   } catch (error) {
     alert("Error generating PDF: " + error.message);
+  } finally {
+    convertBtn.disabled = false;
+    convertBtn.innerText = "Convert to PDF";
   }
-
-  convertBtn.disabled = false;
-  convertBtn.innerText = "Convert to PDF";
 }
