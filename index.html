@@ -3,39 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Favicon -->
-<link rel="icon" type="image/png" href="icon.png?v=1">
-<link rel="apple-touch-icon" href="icon.png?v=1">
-<link rel="manifest" href="manifest.json?v=1">
-  
-<!-- PWA Manifest -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#2563eb">
-  <!-- Social Media Preview Tags -->
-<meta property="og:title" content="Free Image to PDF Converter | TechG7">
-<meta property="og:description" content="Convert JPG, PNG, and WebP images to high-quality PDF files instantly. 100% free, secure, and offline compatible.">
-<meta property="og:image" content="https://techg7.github.io/Free-image-to-pdf-converter/icon.png">
-<meta property="og:url" content="https://techg7.github.io/Free-image-to-pdf-converter/">
-  
+
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/png" href="icon.png?v=1">
+  <link rel="apple-touch-icon" href="icon.png?v=1">
+  <link rel="manifest" href="manifest.json?v=1">
+  <meta name="theme-color" content="#2563eb">
+
   <!-- SEO Meta Tags -->
   <title>Fastest Image to PDF Converter Online | Free & Secure</title>
   <meta name="description" content="Free online Image to PDF converter. Convert JPG, PNG to PDF instantly in your browser. 100% secure with no server upload. Easy drag & drop and fast conversion.">
   <meta name="keywords" content="image to pdf, convert jpg to pdf, free pdf converter, png to pdf online, fast image to pdf tool, picture to pdf">
-  <meta name="author" content="Your Brand Name">
+  <meta name="author" content="TechG7">
   <meta name="robots" content="index, follow">
 
+  <!-- Single Correct Canonical Tag -->
+  <link rel="canonical" href="https://techg7.github.io/Free-image-to-pdf-converter/">
+
   <!-- Open Graph Tags (Social Media Sharing) -->
-  <meta property="og:title" content="Fastest Image to PDF Converter Online">
-  <meta property="og:description" content="Convert images to PDF instantly in your browser for free without server uploads.">
   <meta property="og:type" content="website">
-  <link rel="canonical" href="https://techg7.github.io/Free-image-to-pdf-converter/" />
-  
-  
+  <meta property="og:title" content="Fastest Image to PDF Converter Online | TechG7">
+  <meta property="og:description" content="Convert JPG, PNG, and WebP images to high-quality PDF files instantly. 100% free, secure, and offline compatible.">
+  <meta property="og:image" content="https://techg7.github.io/Free-image-to-pdf-converter/icon.png">
+  <meta property="og:url" content="https://techg7.github.io/Free-image-to-pdf-converter/">
+
+  <!-- Bing Verification -->
+  <meta name="msvalidate.01" content="F6326DCC13FF697B48075231A6574D85">
+
+  <!-- CSS & External Libraries -->
   <link rel="stylesheet" href="style.css">
-<link rel="canonical" href="https://TechG7.github.io/Free-image-to-pdf-converter/">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <meta name="msvalidate.01" content="F6326DCC13FF697B48075231A6574D85" />
-  <!-- External Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
 </head>
@@ -58,37 +54,38 @@
     <label for="pdfFileName">Output File Name:</label>
     <input type="text" id="pdfFileName" class="file-input-name" placeholder="my_document" value="converted_file">
   </div>
-<!-- Controls Section -->
-<div class="controls-grid">
-  <div class="input-group">
-    <label for="pageOrientation">Orientation</label>
-    <select id="pageOrientation">
-      <option value="p">Portrait (Vertical)</option>
-      <option value="l">Landscape (Horizontal)</option>
-    </select>
+
+  <!-- Controls Section -->
+  <div class="controls-grid">
+    <div class="input-group">
+      <label for="pageOrientation">Orientation</label>
+      <select id="pageOrientation">
+        <option value="p">Portrait (Vertical)</option>
+        <option value="l">Landscape (Horizontal)</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="pageMargin">Page Margin</label>
+      <select id="pageMargin">
+        <option value="0">No Margin</option>
+        <option value="10">Small Margin</option>
+        <option value="20">Big Margin</option>
+      </select>
+    </div>
   </div>
 
-  <div class="input-group">
-    <label for="pageMargin">Page Margin</label>
-    <select id="pageMargin">
-      <option value="0">No Margin</option>
-      <option value="10">Small Margin</option>
-      <option value="20">Big Margin</option>
-    </select>
+  <div class="input-group" style="margin-top: 15px;">
+    <label for="pdfPassword">Set PDF Password (Optional)</label>
+    <input type="password" id="pdfPassword" placeholder="Leave empty for no password">
   </div>
-</div>
-
-<div class="input-group" style="margin-top: 15px;">
-  <label for="pdfPassword">Set PDF Password (Optional)</label>
-  <input type="password" id="pdfPassword" placeholder="Leave empty for no password">
-</div>
-  
+    
   <div class="actions">
     <button class="btn btn-clear" id="clearBtn" disabled>Clear</button>
     <button class="btn" id="convertBtn" disabled>Convert to PDF</button>
   </div>
 
-  <!-- SEO Content Section (Google Ranking Improvement) -->
+  <!-- SEO Content Section -->
   <article class="seo-info">
     <h2>How to Convert Image to PDF?</h2>
     <ol>
