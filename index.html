@@ -41,6 +41,8 @@
   <header class="header">
     <h1>Image to PDF Converter</h1>
     <button class="theme-btn" id="themeBtn" aria-label="Toggle Theme">☀️ Light</button>
+    <button id="installBtn" class="btn" style="display: none;">📲 Install App</button>
+    
   </header>
 
   <section class="drop-zone" id="dropZone">
@@ -106,6 +108,28 @@
         .catch((err) => console.error('Service Worker registration failed:', err));
     });
   }
+    let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Browser ka default popup rokein
+  e.preventDefault();
+  deferredPrompt = e;
+  // Custom button dikhaiye
+  installBtn.style.display = 'inline-block';
+});
+
+installBtn.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  // Install prompt dikhaiye
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  if (outcome === 'accepted') {
+    installBtn.style.display = 'none';
+  }
+  deferredPrompt = null;
+});
+    
   </script>
   
 </body>
