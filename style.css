@@ -319,3 +319,47 @@ body {
     padding: 24px;
   }
 }
+/* ==========================================
+   CSS KE SABSE NICHE YE CODE PASTE KAREIN
+   ========================================== */
+
+/* 1. Mobile View: Screen par poora fit (Full Screen App) */
+body {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100dvh !important;
+  background-color: #0b1329 !important;
+}
+
+.container, .app-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100dvh !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 16px !important;
+}
+
+/* 2. Laptop View (> 768px): Laptop par Card center me aayega */
+@media screen and (min-width: 768px) {
+  body {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: #030712 !important;
+    padding: 20px !important;
+  }
+
+  .container, .app-container {
+    max-width: 500px !important;
+    min-height: auto !important;
+    border-radius: 16px !important;
+    border: 1px solid #1e293b !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    padding: 24px !important;
+  }
+}
