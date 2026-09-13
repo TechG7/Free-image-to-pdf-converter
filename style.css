@@ -241,3 +241,41 @@ body {
   color: var(--text);
   box-sizing: border-box;
 }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0f172a;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+}
+
+/* Mobile View (Default): Full Screen Fixed App */
+.app-container {
+  width: 100%;
+  min-height: 100dvh;
+  padding: 16px;
+  background-color: #0f172a;
+}
+
+/* Laptop & Tablet View (> 768px): Laptop Desktop Card */
+@media (min-width: 768px) {
+  body {
+    align-items: center;
+    background-color: #020617; /* Darker outer background for desktop */
+    padding: 20px;
+  }
+
+  .app-container {
+    max-width: 720px; /* Laptop par layout clean aur structured rahega */
+    min-height: auto;
+    border-radius: 16px;
+    border: 1px solid #1e293b;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    padding: 32px;
+  }
+}
